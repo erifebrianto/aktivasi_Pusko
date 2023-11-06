@@ -71,7 +71,7 @@ class Pelanggan extends CI_Controller {
             $this->Pelanggan_model->tambah_pelanggan($data);
 
             // Create CLI configuration
-            $cli_config = "conf t\n";
+            $cli_config = "<br>conf t\n";
             $cli_config .= "interface gpon-olt_" . $data['no_port_olt'] . "\n";
             $cli_config .= "onu " . $data['no_onu'] . " type " . $data['jenis_modem'] . " sn " . $data['sn'] . "\n";
             $cli_config .= "exit\n";
@@ -188,7 +188,7 @@ public function view_cli_config($id) {
     }
 
     // Membuat konfigurasi CLI sesuai dengan template
-    $cli_config = "conf t\n";
+    $cli_config = "<br>conf t\n";
     $cli_config .= "interface gpon-olt_" . $no_port_olt . "\n";
     $cli_config .= "onu " . $no_onu . " type " . $jenis_modem . " sn " . $sn . "\n";
     $cli_config .= "exit\n";
