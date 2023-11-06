@@ -85,7 +85,7 @@ class Pelanggan extends CI_Controller {
             $cli_config .= "exit\n";
             $cli_config .= "pon-onu-mng gpon-onu_" . $data['no_port_olt'] . ":" . $data['no_onu'] . "\n";
             $cli_config .= "service 1 gemport 1 cos 0 vlan " . $vlan . "\n";
-            $cli_config .= "wan-ip 1 mode pppoe username " . $data['user_pppoe'] . " password " . $data['password_pppoe'] . " vlan-profile BROADBAND-" . $data['lokasi_pemasangan'] . " host 1\n";
+            $cli_config .= "wan-ip 1 mode pppoe username " . $data['user_pppoe'] . " password " . $data['password_pppoe'] . " vlan-profile BROADBAND-" . strtoupper($data['lokasi_pemasangan']) . " host 1\n";
             $cli_config .= "security-mgmt 1 state enable mode forward protocol web\n";
             $cli_config .= "exit\n";
             $cli_config .= "end\n";
@@ -202,7 +202,7 @@ public function view_cli_config($id) {
     $cli_config .= "exit\n";
     $cli_config .= "pon-onu-mng gpon-onu_" . $no_port_olt . ":" . $no_onu . "\n";
     $cli_config .= "service 1 gemport 1 cos 0 vlan " . $vlan . "\n";
-    $cli_config .= "wan-ip 1 mode pppoe username " . $user_pppoe . " password " . $password_pppoe . " vlan-profile BROADBAND-" . $lokasi_pemasangan . " host 1\n";
+    $cli_config .= "wan-ip 1 mode pppoe username " . $user_pppoe . " password " . $password_pppoe . " vlan-profile BROADBAND-" . strtoupper($lokasi_pemasangan) . " host 1\n";
     $cli_config .= "security-mgmt 1 state enable mode forward protocol web\n";
     $cli_config .= "exit\n";
     $cli_config .= "end\n";
